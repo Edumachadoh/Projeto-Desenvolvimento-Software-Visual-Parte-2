@@ -1,0 +1,177 @@
+### Requisação para a raiz da aplicação
+GET http://localhost:5020
+
+### Listar arqueologos
+GET http://localhost:5020/api/arqueologo/listar
+
+### Listar artefatos
+GET http://localhost:5020/api/artefato/listar
+
+### Listar fosseis
+GET http://localhost:5020/api/fossil/listar
+
+### Listar paleontologos
+GET http://localhost:5020/api/paleontologo/listar
+
+### Listar areas de especializacao
+GET http://localhost:5020/api/area-especializacao/listar
+
+### Listar formacoes academicas
+GET http://localhost:5020/api/formacao-academica/listar
+
+### Buscar arqueologo
+GET http://localhost:5020/api/arqueologo/buscar/1
+
+### Buscar artefato
+GET http://localhost:5020/api/artefato/buscar/1
+
+### Buscar fossil
+GET http://localhost:5020/api/fossil/buscar/1
+
+### Buscar peleontologo
+GET http://localhost:5020/api/paleontologo/buscar/1
+
+### Buscar area especializacao
+GET http://localhost:5020/api/area-especializacao/buscar/1
+
+### Buscar formacao academica
+GET http://localhost:5020/api/formacao-academica/buscar/1
+
+### Cadastrar artefato
+POST http://localhost:5020/api/artefato/cadastrar
+Content-Type: application/json
+
+{
+  "nome": "Bastão de marfim",
+  "periodo": "Paleolítico Superior",
+  "civilizacaoOrigem": "Primeiros humanos America do Norte",
+  "funcionalidade": "Criação de cordas",
+  "dimensao": "21cm",
+  "material": "Origem vegetal",
+  "arqueologoId": 1
+}
+
+### Cadastrar fossil
+POST http://localhost:5020/api/fossil/cadastrar
+Content-Type: application/json
+
+{
+  "nome": "Maximus",
+  "nomeCientifico": "Tyrannosaurus rex",
+  "localizacaoDescoberta": "Ilha de Madagascar",
+  "tipoFossil": "Crânio",
+  "especiaOrganismo": "T-Rex",
+  "condicaoPreservacao": "Deteriorada",
+  "epocaGeologica": "Cretáceo",
+  "paleontologoId": 3
+}
+
+### Cadastrar paleontologo
+POST http://localhost:5020/api/paleontologo/cadastrar
+Content-Type: application/json
+
+{
+  "nome": "Jose Luiz Datena",
+  "cpf": "123-123-643.00",
+  "dataNascimento": "1995-09-05", 
+  "anosExperiencia": 4, 
+  "areaEspecializacaoId": 1,
+  "idMatricula": 57823463
+}
+
+### Cadastrar arqueologo
+POST http://localhost:5020/api/arqueologo/cadastrar
+Content-Type: application/json
+
+{
+  "nome": "Tiririca Messias Bolsonaro",
+  "cpf": "772-642-126.12",
+  "dataNascimento": "1985-01-15",
+  "anosExperiencia": "10",
+  "idRegistroProfissional":45745743,
+  "formacaoAcademicaId": 1
+}
+
+### Cadastrar area especializacao
+POST http://localhost:5020/api/area-especializacao/cadastrar
+Content-Type: application/json
+
+{
+  "nome": "Estegossauro",
+  "pais": "Brasil"
+}
+
+### Cadastrar formacao academica
+POST http://localhost:5020/api/formacao-academica/cadastrar
+Content-Type: application/json
+
+{
+  "nome": "Geologia",
+  "universidade": "Universidade de Helsinki, Finlandia"
+}
+
+### Deletar fossil
+DELETE http://localhost:5020/api/fossil/deletar/1
+
+### Deletar artefato
+DELETE http://localhost:5020/api/artefato/deletar/1
+
+### Deletar arqueologo
+DELETE http://localhost:5020/api/arqueologo/deletar/1
+
+### Deletar paleontologo
+DELETE http://localhost:5020/api/paleontologo/deletar/1
+
+### Deletar formacao academica
+DELETE http://localhost:5020/api/formacao-academica/deletar/1
+
+### Deletar area especializacao
+DELETE http://localhost:5020/api/area-especializacao/deletar/1
+
+### Alterar fossil
+PUT http://localhost:5020/api/fossil/alterar/1
+Content-Type: application/json
+
+{
+  "nome": "Horridus"
+}
+
+### Alterar artefato
+PUT http://localhost:5020/api/artefato/alterar/1
+Content-Type: application/json
+
+{
+  "periodo": "Cenozoico"
+}
+
+### Alterar arqueologo
+PUT http://localhost:5020/api/arqueologo/alterar/1
+Content-Type: application/json
+
+{
+  "AnosExperiencia": 7
+}
+
+### Alterar paleontologo
+PUT http://localhost:5020/api/paleontologo/alterar/1
+Content-Type: application/json
+
+{
+  "idMatricula": 66636457
+}
+
+### Alterar area especializacao
+PUT http://localhost:5020/api/area-especializacao/alterar/1
+Content-Type: application/json
+
+{
+  "Nome": "Anquilossauro"
+}
+
+### Alterar formacao academica
+PUT http://localhost:5020/api/formacao-academica/alterar/1
+Content-Type: application/json
+
+{
+  "Universidade": "Universidade de Drexel, Filadélfia"
+}
