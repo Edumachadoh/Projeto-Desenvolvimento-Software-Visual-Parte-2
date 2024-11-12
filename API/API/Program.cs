@@ -7,10 +7,19 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(options => 
+    options.AddPolicy("Acesso Total", 
+        configs => configs
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod())
+);
 
 builder.Services.AddDbContext<AppDataContext>();
 
 var app = builder.Build();
+
+
 app.MapGet("/", () => "API Sítio Arqueológico");
 
 
@@ -392,4 +401,5 @@ app.MapPut("/api/formacao-academica/alterar/{id}", ([FromRoute] int id,
     return Results.Ok(formacaoAcademica);
 });
 
+app.UseCors("Acesso Total");
 app.Run();
