@@ -20,7 +20,7 @@ function AreaEspecializacaoListar(){
     return <div>
         <h1>Listar Formações Acadêmicas
         </h1>
-
+        
         <table>
             <tr>
                 <th>ID</th>

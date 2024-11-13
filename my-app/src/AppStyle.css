@@ -176,3 +176,48 @@ footer {
         align-items: center;
     }
 }
+
+/* Estilo para o título */
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Estilo para a tabela */
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    
+}
+
+/* Estilo para cabeçalhos da tabela */
+th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+/* Estilo para células de dados */
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+/* Alternar cores de fundo para as linhas da tabela */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect para linhas da tabela */
+tr:hover {
+    background-color: #dcdcdc;
+    transition: background-color 0.2s ease-in;
+}
+
