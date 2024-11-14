@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eduardo\\Desktop\\Software Visual - Projeto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj": {}
+    "D:\\Faculdade\\Diogo Deconto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eduardo\\Desktop\\Software Visual - Projeto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj": {
+    "D:\\Faculdade\\Diogo Deconto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eduardo\\Desktop\\Software Visual - Projeto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj",
+        "projectUniqueName": "D:\\Faculdade\\Diogo Deconto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Eduardo\\Desktop\\Software Visual - Projeto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eduardo\\Desktop\\Software Visual - Projeto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\obj\\",
+        "projectPath": "D:\\Faculdade\\Diogo Deconto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\enzon\\.nuget\\packages\\",
+        "outputPath": "D:\\Faculdade\\Diogo Deconto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\enzon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,11 +49,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
