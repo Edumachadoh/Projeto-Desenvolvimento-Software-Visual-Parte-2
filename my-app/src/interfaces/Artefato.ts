@@ -8,4 +8,6 @@ export interface Artefato extends Arqueologo{
     funcionalidade: string;
     dimensao: string;
     material: string;
+    arqueologoId: number;
+    adicionadoEm: Date;
 }

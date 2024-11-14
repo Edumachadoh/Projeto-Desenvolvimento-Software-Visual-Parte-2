@@ -2,6 +2,7 @@ import React from "react";
 import AreaEspecializacaoListar from "./components/AreaEspecializacaoListar";
 import FormacaoAcademicaListar from "./components/FormacaoAcademicaListar";
 import ArtefatoListar from "./components/ArtefatoListar";
+import FossilListar from "./components/FossilListar";
 import Home from "./components/Home";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./AppStyle.css";
@@ -18,7 +19,7 @@ function App() {
                 <li><Link to="/">Home</Link></li>
                 <li><a href="#">Arqueologo</a></li>
                 <li><a href="#">Paleontólogo</a></li>
-                <li><a href="#">Fóssil</a></li>
+                <li><Link to="/fossil">Fossil</Link></li>
                 <li><Link to="/artefato">Artefato</Link></li>
                 <li><Link to="/formacaoAcademica">Formação Acadêmica</Link></li>
                 <li><Link to="/areaEspecializacao">Area de Especialização</Link></li>
@@ -31,6 +32,7 @@ function App() {
           <Route path="/formacaoAcademica" element={<FormacaoAcademicaListar/>}></Route>
           <Route path="/areaEspecializacao" element={<AreaEspecializacaoListar/>}></Route>
           <Route path="/artefato" element={<ArtefatoListar/>}></Route>
+          <Route path="/fossil" element={<FossilListar/>}></Route>
     </Routes>
     </BrowserRouter>
    </div>
