@@ -1,6 +1,6 @@
 import { Arqueologo } from "./Arqueologo";
 
-export interface Artefato extends Arqueologo{
+export interface Artefato {
     id?: string;
     nome: string;
     periodo: string;
@@ -9,5 +9,6 @@ export interface Artefato extends Arqueologo{
     dimensao: string;
     material: string;
     arqueologoId: number;
-    adicionadoEm: Date;
+    arqueologo?: Arqueologo;
+    adicionadoEm?: string;
 }

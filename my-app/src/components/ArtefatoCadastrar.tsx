@@ -4,68 +4,146 @@ import { Paleontologo } from "../interfaces/Paleontologo";
 import './ArtefatoCadastrar.css'
 
 function ArtefatoCadastrar() {
-    const [categorias, setCategorias] = useState<Categoria[]>([]);
     const [nome, setNome] = useState("");
-    const [descricao, setDescricao] = useState("");
-    const [quantidade, setQuantidade] = useState("");
-    const [preco, setPreco] = useState("");
-    const [categoriaId, setCategoriaId] = useState(0);
+    const [periodo, setPeriodo] = useState("");
+    const [civilizacaoDeOrigem, setCivilizacaoDeOrigem] = useState("");
+    const [funcionalidade, setFuncionalidade] = useState("");
+    const [dimensao, setDimensao] = useState("");
+    const [material, setMaterial] = useState("");
+    const [arqueologoId, setArqueologoId] = useState(0);
+    const [arqueologos, setArqueologos] = useState<any[]>([]);
   
     useEffect(() => {
-      axios
-        .get<Categoria[]>("http://localhost:5020/api/artefato/listar")
-        .then((resposta) => {
-          setCategorias(resposta.data);
+      fetch("http://localhost:5020/api/artefato/listar")
+        .then((resposta) => resposta.json())
+        .then((arqueologos) => {
+          setArqueologos(arqueologos);
+          console.table(arqueologos);
         });
-    });
+    }, []);
   
-    function enviarArtefato(e: any) {
-      e.preventDefault();
-
+    function enviarProduto(e: any) {
       const artefato: Artefato = {
         nome: nome,
         periodo: periodo,
         civilizacaoDeOrigem: civilizacaoDeOrigem,
         funcionalidade: funcionalidade,
-        dimensao:  dimensao,
+        dimensao: dimensao,
         material: material,
         arqueologoId: arqueologoId,
-        adicionadoEm: adicionadoEm,
       };
-
-      fetch("http://localhost:5020/api/artefato/listar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(artefato),
-    })
-      .then((resposta) => {
-        return resposta.json();
+  
+      //AXIOS - Biblioteca para requisições HTTP - Recomendação
+  
+      fetch("http://localhost:5020/api/artefato/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(artefato),
       })
-      .then((produto) => {
-        console.log("Produto cadastrado", produto);
-      });
+        .then((resposta) => resposta.json())
+        .then((produto) => {
+          console.log(artefato);
+        });
+      e.preventDefault();
+    }
+  
+    return (
+      <div id="cadastro-artefato" className={styles["cadastro-artefato"]}>
+        <h1 className={styles.h1}>Cadastrar Artefato</h1>
+        <form onSubmit={enviarArtefato} className={styles.form}>
+          <div className={styles["form-group"]}>
+            <label htmlFor="nome">Nome</label>
+            <input
+              onChange={(e: any) => setNome(e.target.value)}
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              placeholder="Digite o nome do artefato"
+            />
+          </div>
+  
+          <div className={styles["form-group"]}>
+            <label htmlFor="periodo">Periodo</label>
+            <textarea
+              onChange={(e: any) => setPeriodo(e.target.value)}
+              id="periodo"
+              name="periodo"
+              required
+              placeholder="Digite o periodo do artefato"
+            ></textarea>
+          </div>
+  
+          <div className={styles["form-group"]}>
+            <label htmlFor="civilização de Origem">CivilizacaoDeOrigem</label>
+            <input
+              onChange={(e: any) => setCivilizacaoDeOrigem(e.target.value)}
+              type="text"
+              id="civilização de origem"
+              name="civilização de origem"
+              required
+              placeholder="Digite a civilização de origem do artefato"
+            />
+          </div>
+  
+          <div className={styles["form-group"]}>
+            <label htmlFor="funcionalidade">Funcionalidade</label>
+            <input
+              onChange={(e: any) => setFuncionalidade(e.target.value)}
+              type="text"
+              id="funcionalidade"
+              name="funcionalidade"
+              required
+              placeholder="Digite a funcionalidade do artefato"
+            />
+          </div>
+
+          <div className={styles["form-group"]}>
+            <label htmlFor="dimensão">Dimensao</label>
+            <input
+              onChange={(e: any) => setDimensao(e.target.value)}
+              type="text"
+              id="dimensão"
+              name="dimensão"
+              required
+              placeholder="Digite a dimensão do artefato"
+            />
+          </div>
+
+          <div className={styles["form-group"]}>
+            <label htmlFor="material">Material</label>
+            <input
+              onChange={(e: any) => setMaterial(e.target.value)}
+              type="text"
+              id="material"
+              name="material"
+              required
+              placeholder="Digite o material do artefato"
+            />
+          </div>
+  
+          <div className={styles["form-group"]}>
+            <label htmlFor="arqueologos">Arqueologos</label>
+            <select
+              id="arqueologo"
+              onChange={(e: any) => setArqueologoId(e.target.value)}
+            >
+              {arqueologoss.map((arqueologo) => (
+                <option key={arqueologo.id} value={arqueologo.id}>
+                  {arqueologo.nome}
+                </option>
+              ))}
+            </select>
+          </div>
+  
+          <div className={styles["form-actions"]}>
+            <button type="submit">Cadastrar Artefato</button>
+          </div>
+        </form>
+      </div>
+    );
   }
-  return (
-    <div id="cadastrar_artefato" className="container">
-      <h1>Cadastrar Artefato</h1>
-      <form onSubmit={enviarArtefato}>
-        <div>
-          <label htmlFor="nome">Nome</label>
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            required
-            onChange={(e: any) => setNome(e.target.value)}
-          />
-        </div>
-
-        <button type="submit">Cadastrar Artefato</button>
-      </form>
-    </div>
-  );
-}
-
-export default ArtefatoCadastrar;
+  
+  export default ArtefatoCadastrar;
