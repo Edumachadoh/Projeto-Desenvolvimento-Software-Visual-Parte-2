@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Faculdade\\Diogo Deconto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj": {}
+    "C:\\Users\\Eduardo\\Desktop\\Software Visual - Projeto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\Faculdade\\Diogo Deconto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj": {
+    "C:\\Users\\Eduardo\\Desktop\\Software Visual - Projeto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Faculdade\\Diogo Deconto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Eduardo\\Desktop\\Software Visual - Projeto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\Faculdade\\Diogo Deconto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\enzon\\.nuget\\packages\\",
-        "outputPath": "D:\\Faculdade\\Diogo Deconto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\obj\\",
+        "projectPath": "C:\\Users\\Eduardo\\Desktop\\Software Visual - Projeto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eduardo\\Desktop\\Software Visual - Projeto\\Projeto-Desenvolvimento-Software-Visual-Parte-2\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\enzon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

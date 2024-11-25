@@ -1,6 +1,9 @@
 ### Requisação para a raiz da aplicação
 GET http://localhost:5020
 
+### Listar Relatório Quantitativo
+GET http://localhost:5020/api/relatorio
+
 ### Listar arqueologos
 GET http://localhost:5020/api/arqueologo/listar
 

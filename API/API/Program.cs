@@ -23,6 +23,48 @@ var app = builder.Build();
 app.MapGet("/", () => "API Sítio Arqueológico");
 
 
+app.MapGet("/api/relatorio", ([FromServices] AppDataContext ctx) => 
+{
+
+
+    int contArqueologos = 0;
+    int contPaleontologo = 0;
+    int contArtefato = 0;
+    int contFossil = 0;
+    int contFormacaoAcademica = 0;
+    int contAreaEspecializacao = 0;
+
+    // funções para gerar relatório 
+    foreach (var arqueologo in ctx.Arqueologos)
+    {
+        contArqueologos += 1;
+    }
+    foreach (var paleontologo in ctx.Paleontologos)
+    {
+        contArqueologos += 1;
+    }
+    foreach (var fossil in ctx.Fosseis)
+    {
+        contArqueologos += 1;
+    }
+    foreach (var artefato in ctx.Artefatos)
+    {
+        contArqueologos += 1;
+    }
+    foreach (var areaEspecializacao in ctx.AreasEspecializacao)
+    {
+        contArqueologos += 1;
+    }
+    foreach (var formacaoAcademica in ctx.FormacoesAcademicas)
+    {
+        contArqueologos += 1;
+    }
+
+
+    // Results.Ok(contArqueologos, contPaleontologo, contArtefato, contFossil, contFormacaoAcademica, contAreaEspecializacao);
+
+    return Results.NotFound();
+});
 
 app.MapGet("/api/arqueologo/listar", ([FromServices] AppDataContext ctx) => 
 {
@@ -161,9 +203,6 @@ app.MapPost("/api/artefato/cadastrar", ([FromBody] Artefato artefato, [FromServi
     return Results.Created("", artefato);
 });
 
-
-
-
 app.MapPost("/api/fossil/cadastrar", ([FromBody] Fossil fossil, [FromServices] AppDataContext ctx) =>
 {
     Paleontologo? paleontologo = ctx.Paleontologos.Find(fossil.PaleontologoId);
@@ -178,9 +217,6 @@ app.MapPost("/api/fossil/cadastrar", ([FromBody] Fossil fossil, [FromServices] A
     ctx.SaveChanges();
     return Results.Created("", fossil);
 });
-
-
-
 
 
 app.MapPost("/api/paleontologo/cadastrar", ([FromBody] Paleontologo paleontologo, [FromServices] AppDataContext ctx) =>
