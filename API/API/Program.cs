@@ -27,43 +27,24 @@ app.MapGet("/api/relatorio", ([FromServices] AppDataContext ctx) =>
 {
 
 
-    int contArqueologos = 0;
-    int contPaleontologo = 0;
-    int contArtefato = 0;
-    int contFossil = 0;
-    int contFormacaoAcademica = 0;
-    int contAreaEspecializacao = 0;
+    int contArqueologo = ctx.Arqueologos.Count();
+    int contPaleontologo = ctx.Paleontologos.Count();
+    int contArtefato = ctx.Artefatos.Count();
+    int contFossil = ctx.Fosseis.Count();
+    int contFormacaoAcademica = ctx.FormacoesAcademicas.Count();
+    int contAreaEspecializacao = ctx.AreasEspecializacao.Count();
 
-    // funções para gerar relatório 
-    foreach (var arqueologo in ctx.Arqueologos)
+    var resultado = new
     {
-        contArqueologos += 1;
-    }
-    foreach (var paleontologo in ctx.Paleontologos)
-    {
-        contArqueologos += 1;
-    }
-    foreach (var fossil in ctx.Fosseis)
-    {
-        contArqueologos += 1;
-    }
-    foreach (var artefato in ctx.Artefatos)
-    {
-        contArqueologos += 1;
-    }
-    foreach (var areaEspecializacao in ctx.AreasEspecializacao)
-    {
-        contArqueologos += 1;
-    }
-    foreach (var formacaoAcademica in ctx.FormacoesAcademicas)
-    {
-        contArqueologos += 1;
-    }
+        contArqueologo,
+        contPaleontologo,
+        contArtefato,
+        contFossil,
+        contFormacaoAcademica,
+        contAreaEspecializacao
+    };
 
-
-    // Results.Ok(contArqueologos, contPaleontologo, contArtefato, contFossil, contFormacaoAcademica, contAreaEspecializacao);
-
-    return Results.NotFound();
+    return Results.Ok(resultado);
 });
 
 app.MapGet("/api/arqueologo/listar", ([FromServices] AppDataContext ctx) => 
