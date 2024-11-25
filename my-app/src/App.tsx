@@ -3,6 +3,7 @@ import AreaEspecializacaoListar from "./components/AreaEspecializacaoListar";
 import FormacaoAcademicaListar from "./components/FormacaoAcademicaListar";
 import ArtefatoListar from "./components/ArtefatoListar";
 import FossilListar from "./components/FossilListar";
+import RelatorioQuantitativo from "./components/RelatorioQuantitativo";
 import Home from "./components/Home";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./AppStyle.css";
@@ -17,6 +18,7 @@ function App() {
             <h1>História Website</h1>
             <ul>
                 <li><Link to="/">Home</Link></li>
+                <li><Link to="/relatorio">Relatório</Link></li>
                 <li><a href="#">Arqueologo</a></li>
                 <li><a href="#">Paleontólogo</a></li>
                 <li><Link to="/fossil">Fossil</Link></li>
@@ -29,6 +31,7 @@ function App() {
    
     <Routes>
           <Route path="/" element={<Home/>}></Route>
+          <Route path="/relatorio" element={<RelatorioQuantitativo/>}></Route>
           <Route path="/formacaoAcademica" element={<FormacaoAcademicaListar/>}></Route>
           <Route path="/areaEspecializacao" element={<AreaEspecializacaoListar/>}></Route>
           <Route path="/artefato" element={<ArtefatoListar/>}></Route>

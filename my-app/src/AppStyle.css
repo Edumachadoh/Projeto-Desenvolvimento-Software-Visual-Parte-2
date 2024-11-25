@@ -208,10 +208,11 @@ td {
     padding: 10px;
     text-align: center;
     border: 1px solid black;
+    background-color: #f2f2f2;
 }
 
 /* Alternar cores de fundo para as linhas da tabela */
-tr:nth-child(even) {
+tr:nth-child() {
     background-color: #f2f2f2;
 }
 
