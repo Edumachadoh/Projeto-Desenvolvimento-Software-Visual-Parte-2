@@ -9,6 +9,5 @@ export interface Artefato {
     dimensao: string;
     material: string;
     arqueologoId: number;
-    arqueologo?: Arqueologo;
     adicionadoEm?: string;
 }

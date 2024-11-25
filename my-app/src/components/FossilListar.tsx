@@ -2,7 +2,7 @@ import { useEffect ,useState } from 'react';
 import { Fossil } from '../interfaces/Fossil';
 
 function FossilListar(){
-    const [Fossil, SetFossil] = useState<Fossil[]>([]);
+    const [fossil, setFossil] = useState<Fossil[]>([]);
     
     useEffect(() => {
         fetch("http://localhost:5020/api/fossil/listar") 
@@ -22,26 +22,29 @@ function FossilListar(){
 
         <table>
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Periodo</th>
+            <th>Nome</th>
+                    <th>Nome Científico</th>
+                    <th>Localização de Descoberta</th>
+                    <th>Tipo de Fóssil</th>
+                    <th>Espécie do Organismo</th>
+                    <th>Condição de Preservação</th>
+                    <th>Época Geológica</th>
+                    <th>Adicionado Em</th>
             </tr>
 
 
 
-            {Fossil.map(Fossil => (
-                <tr key={Fossil.id}>
-                    <td>{Fossil.id}</td>
-                    <td>{Fossil.nome}</td>
-                    <td>{Fossil.nomeCientifico}</td>
-                    <td>{Fossil.localizacaoDescoberta}</td>
-                    <td>{Fossil.tipoFossil}</td>
-                    <td>{Fossil.especiaOrganismo}</td>
-                    <td>{Fossil.condicaoPreservacao}</td>
-                    <td>{Fossil.epocaGeologica}</td>
-
-                    
-                </tr>
+            {fossil.map(fossil => (
+                <tr key={fossil.id}>
+                <td>{fossil.nome}</td>
+                <td>{fossil.nomeCientifico}</td>
+                <td>{fossil.localizacaoDescoberta}</td>
+                <td>{fossil.tipoFossil}</td>
+                <td>{fossil.especiaOrganismo}</td>
+                <td>{fossil.condicaoPreservacao}</td>
+                <td>{fossil.epocaGeologica}</td>
+                <td>{fossil.adicionadoEm}</td>
+            </tr>
             ))}
         </table>
     </div>

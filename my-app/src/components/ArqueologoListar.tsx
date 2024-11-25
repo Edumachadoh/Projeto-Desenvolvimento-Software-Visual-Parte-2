@@ -40,4 +40,4 @@ function ArqueologoListar(){
     </div>
 }
 
-export default AreaEspecializacaoListar;
+export default ArqueologoListar;

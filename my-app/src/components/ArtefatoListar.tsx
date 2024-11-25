@@ -46,7 +46,7 @@ function ArtefatoListar(){
                         <td>{Artefato.dimensao || 'N/A'}</td>
                         <td>{Artefato.material || 'N/A'}</td>
                         <td>{Artefato.arqueologoId}</td>
-                        <td>{new Date(Artefato.adicionadoEm).toLocaleDateString()}</td>
+                        <td>{(Artefato.adicionadoEm)}</td>
                     </tr>
                 ))}
             </tbody>

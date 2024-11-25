@@ -1,7 +1,7 @@
 import { useEffect ,useState } from 'react';
 import { FormacaoAcademica } from '../interfaces/FormacaoAcademica';
 
-function AreaEspecializacaoListar(){
+function FormacaoAcademicaListar(){
     const [formacaoAcademica, setAreasEspecializacao] = useState<FormacaoAcademica[]>([]);
     
     useEffect(() => {
@@ -41,4 +41,4 @@ function AreaEspecializacaoListar(){
     </div>
 }
 
-export default AreaEspecializacaoListar;
+export default FormacaoAcademicaListar;

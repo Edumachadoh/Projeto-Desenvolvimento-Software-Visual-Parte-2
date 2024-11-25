@@ -22,7 +22,7 @@ function ArtefatoCadastrar() {
         });
     }, []);
   
-    function enviarProduto(e: any) {
+    function enviarArtefato(e: any) {
       const artefato: Artefato = {
         nome: nome,
         periodo: periodo,
@@ -50,8 +50,8 @@ function ArtefatoCadastrar() {
     }
   
     return (
-      <div id="cadastro-artefato" className={styles["cadastro-artefato"]}>
-        <h1 className={styles.h1}>Cadastrar Artefato</h1>
+      <div id="cadastro-artefato" className="cadastro-artefato">
+         {/* <h1 className={styles.h1}>Cadastrar Artefato</h1>
         <form onSubmit={enviarArtefato} className={styles.form}>
           <div className={styles["form-group"]}>
             <label htmlFor="nome">Nome</label>
@@ -141,7 +141,7 @@ function ArtefatoCadastrar() {
           <div className={styles["form-actions"]}>
             <button type="submit">Cadastrar Artefato</button>
           </div>
-        </form>
+        </form> */}
       </div>
     );
   }
