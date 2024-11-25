@@ -1,7 +1,7 @@
 import { useEffect ,useState } from 'react';
 import { Paleontologo } from '../interfaces/Paleontologo';
 
-function AreaEspecializacaoListar(){
+function PaleontologoListar(){
     const [paleontologo, setPaleontologo] = useState<Paleontologo[]>([]);
     
     useEffect(() => {
@@ -18,16 +18,19 @@ function AreaEspecializacaoListar(){
     
     
     return <div>
-        <h1>Listar Areas de Especialização
+        <h1>Listar Paleontólogos
         </h1>
         
         <table>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Pais</th>
+                <th>Cpf</th>
+                <th>Data de Nascimento</th>
+                <th>Anos de experiência</th>
+                <th>Número de Matrícula</th>
+                <th>Adicionado em</th>
             </tr>
-
 
             {paleontologo.map(paleontologo => (
                 <tr key={paleontologo.id}>
@@ -36,10 +39,12 @@ function AreaEspecializacaoListar(){
                     <td>{paleontologo.cpf}</td>
                     <td>{paleontologo.dataNascimento}</td>
                     <td>{paleontologo.anosExperiencia}</td>
+                    <td>{Number(paleontologo.idMatricula)}</td>
+                    <td>{new Date(paleontologo.adicionadoEm?? "").toLocaleDateString("pt-BR")}</td>
                 </tr>
             ))}
         </table>
     </div>
 }
 
-export default AreaEspecializacaoListar;
+export default PaleontologoListar;

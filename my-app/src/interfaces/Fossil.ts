@@ -10,5 +10,5 @@ export interface Fossil extends Paleontologo{
     condicaoPreservacao: string;
     epocaGeologica: string;
     paleontologoId: number;
-    adicionadoEm?: string;
+    adicionadoEm?: Date;
 }

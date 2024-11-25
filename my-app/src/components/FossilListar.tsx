@@ -43,7 +43,7 @@ function FossilListar(){
                 <td>{fossil.especiaOrganismo}</td>
                 <td>{fossil.condicaoPreservacao}</td>
                 <td>{fossil.epocaGeologica}</td>
-                <td>{fossil.adicionadoEm}</td>
+                <td>{new Date(fossil.adicionadoEm?? "").toLocaleDateString("pt-BR")}</td>
             </tr>
             ))}
         </table>

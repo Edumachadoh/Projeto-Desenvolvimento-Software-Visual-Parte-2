@@ -1,4 +1,5 @@
 import React from "react";
+import "./AppStyle.css";
 import AreaEspecializacaoListar from "./components/AreaEspecializacaoListar";
 import FormacaoAcademicaListar from "./components/FormacaoAcademicaListar";
 import ArtefatoListar from "./components/ArtefatoListar";
@@ -6,7 +7,8 @@ import FossilListar from "./components/FossilListar";
 import RelatorioQuantitativo from "./components/RelatorioQuantitativo";
 import Home from "./components/Home";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import "./AppStyle.css";
+import PaleontologoListar from "./components/PaleontologoListar";
+import ArqueologoListar from "./components/ArqueologoListar";
 
 //importar componentes
 function App() {
@@ -19,12 +21,12 @@ function App() {
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/relatorio">Relatório</Link></li>
-                <li><a href="#">Arqueologo</a></li>
-                <li><a href="#">Paleontólogo</a></li>
-                <li><Link to="/fossil">Fossil</Link></li>
-                <li><Link to="/artefato">Artefato</Link></li>
-                <li><Link to="/formacaoAcademica">Formação Acadêmica</Link></li>
-                <li><Link to="/areaEspecializacao">Area de Especialização</Link></li>
+                <li><a href="/listar/arqueologo">Arqueologo</a></li>
+                <li><Link to="/listar/paleontologo">Paleontólogo</Link></li>
+                <li><Link to="/listar/fossil">Fossil</Link></li>
+                <li><Link to="/listar/artefato">Artefato</Link></li>
+                <li><Link to="/listar/formacaoAcademica">Formação Acadêmica</Link></li>
+                <li><Link to="/listar/areaEspecializacao">Area de Especialização</Link></li>
             </ul>
         </nav>
     </header>
@@ -32,10 +34,12 @@ function App() {
     <Routes>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/relatorio" element={<RelatorioQuantitativo/>}></Route>
-          <Route path="/formacaoAcademica" element={<FormacaoAcademicaListar/>}></Route>
-          <Route path="/areaEspecializacao" element={<AreaEspecializacaoListar/>}></Route>
-          <Route path="/artefato" element={<ArtefatoListar/>}></Route>
-          <Route path="/fossil" element={<FossilListar/>}></Route>
+          <Route path="/listar/paleontologo" element={<PaleontologoListar/>}></Route>
+          <Route path="/listar/arqueologo" element={<ArqueologoListar/>}></Route>
+          <Route path="/listar/formacaoAcademica" element={<FormacaoAcademicaListar/>}></Route>
+          <Route path="/listar/areaEspecializacao" element={<AreaEspecializacaoListar/>}></Route>
+          <Route path="/listar/artefato" element={<ArtefatoListar/>}></Route>
+          <Route path="/listar/fossil" element={<FossilListar/>}></Route>
     </Routes>
     </BrowserRouter>
    </div>
