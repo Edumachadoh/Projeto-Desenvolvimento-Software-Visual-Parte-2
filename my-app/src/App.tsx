@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import PaleontologoListar from "./components/PaleontologoListar";
 import ArqueologoListar from "./components/ArqueologoListar";
+import ArqueologoAdicionar from "./components/ArqueologoAdicionar";
 
 //importar componentes
 function App() {
@@ -21,7 +22,14 @@ function App() {
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/relatorio">Relatório</Link></li>
-                <li><a href="/listar/arqueologo">Arqueologo</a></li>
+                
+                <li className="dropdown">   
+                    <span className="dropdown-label">Arqueólogos</span>
+                    <ul className="dropdown-menu">
+                        <li><Link to="/listar/arqueologo">Listar</Link></li>
+                        <li><Link to="/adicionar/arqueologo">Adicionar</Link></li>
+                    </ul>
+                </li>
                 <li><Link to="/listar/paleontologo">Paleontólogo</Link></li>
                 <li><Link to="/listar/fossil">Fossil</Link></li>
                 <li><Link to="/listar/artefato">Artefato</Link></li>
@@ -36,6 +44,7 @@ function App() {
           <Route path="/relatorio" element={<RelatorioQuantitativo/>}></Route>
           <Route path="/listar/paleontologo" element={<PaleontologoListar/>}></Route>
           <Route path="/listar/arqueologo" element={<ArqueologoListar/>}></Route>
+          <Route path="/adicionar/arqueologo" element={<ArqueologoAdicionar/>}></Route>
           <Route path="/listar/formacaoAcademica" element={<FormacaoAcademicaListar/>}></Route>
           <Route path="/listar/areaEspecializacao" element={<AreaEspecializacaoListar/>}></Route>
           <Route path="/listar/artefato" element={<ArtefatoListar/>}></Route>

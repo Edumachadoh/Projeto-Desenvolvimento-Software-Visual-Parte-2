@@ -5,6 +5,8 @@
     box-sizing: border-box;
 }
 
+
+
 /* Cores temáticas */
 :root {
     --egyptian-yellow: #e9cb20; /* Tom dourado/amarelo */
@@ -222,3 +224,61 @@ tr:hover {
     transition: background-color 0.2s ease-in;
 }
 
+.nav-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .nav-bar li {
+    position: relative; /* Necessário para posicionar o submenu */
+  }
+  
+  .nav-bar li a,
+  .nav-bar li span {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  /* Estilo do título do dropdown */
+  .dropdown-title {
+    cursor: pointer;
+  }
+
+  .dropdown 
+  /* Esconde o menu dropdown inicialmente */
+  .dropdown-menu {
+    display: none; /* Inicialmente escondido */
+    position: absolute; /* Remove o submenu do fluxo normal */
+    top: 100%; /* Posiciona logo abaixo do título */
+    background-color: #f9f9f9;
+    list-style: none;
+    margin: 0;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  /* Exibe o menu ao passar o mouse sobre o item pai (Arqueólogos) */
+  .dropdown:hover .dropdown-menu {
+    display: block; /* Exibe o menu apenas quando o mouse está sobre o item */
+  }
+  
+  /* Estilo dos itens do dropdown */
+ 
+  
+  .dropdown-menu li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown-menu li a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  
