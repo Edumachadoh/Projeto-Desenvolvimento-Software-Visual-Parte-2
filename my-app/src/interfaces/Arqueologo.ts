@@ -1,11 +1,10 @@
-import { FormacaoAcademica } from "./FormacaoAcademica";
-
-export interface Arqueologo extends FormacaoAcademica{
+export interface Arqueologo {
     id?: string;
     nome: string;
     cpf : string;
-    dataNascimento: Date;
+    dataNascimento: string;
     anosExperiencia: string;
     idRegistroProfissional: number,
+    formacaoAcademicaId: number,
     adicionadoEm?: Date
 }

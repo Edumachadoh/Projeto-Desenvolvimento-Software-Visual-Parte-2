@@ -9,7 +9,7 @@ import Home from "./components/Home";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import PaleontologoListar from "./components/PaleontologoListar";
 import ArqueologoListar from "./components/ArqueologoListar";
-import ArqueologoAdicionar from "./components/ArqueologoAdicionar";
+import ArqueologoCadastrar from "./components/ArqueologoCadastrar";
 
 //importar componentes
 function App() {
@@ -44,7 +44,7 @@ function App() {
           <Route path="/relatorio" element={<RelatorioQuantitativo/>}></Route>
           <Route path="/listar/paleontologo" element={<PaleontologoListar/>}></Route>
           <Route path="/listar/arqueologo" element={<ArqueologoListar/>}></Route>
-          <Route path="/adicionar/arqueologo" element={<ArqueologoAdicionar/>}></Route>
+          <Route path="/adicionar/arqueologo" element={<ArqueologoCadastrar/>}></Route>
           <Route path="/listar/formacaoAcademica" element={<FormacaoAcademicaListar/>}></Route>
           <Route path="/listar/areaEspecializacao" element={<AreaEspecializacaoListar/>}></Route>
           <Route path="/listar/artefato" element={<ArtefatoListar/>}></Route>
