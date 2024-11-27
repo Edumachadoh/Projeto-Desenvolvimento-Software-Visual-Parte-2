@@ -355,4 +355,20 @@ tr:hover {
     text-decoration: none;
   }
 
+  td .btn-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #5a3e1b; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+td .btn-link:hover {
+    background-color: #3e2811; /* Cor de fundo ao passar o mouse */
+    color: #f1f1f1; /* Cor do texto ao passar o mouse */
+}
   

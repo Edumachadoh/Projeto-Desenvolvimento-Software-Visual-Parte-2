@@ -1,5 +1,7 @@
 import { useEffect ,useState }from 'react';
 import { Arqueologo } from '../interfaces/Arqueologo';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function ArqueologoListar(){
     const [arqueologo, setArqueologo] = useState<Arqueologo[]>([]);
@@ -16,6 +18,16 @@ function ArqueologoListar(){
         
     });
 
+   
+        function deletar(id: string) {
+            axios
+              .delete(`http://localhost:5020/api/arqueologo/deletar/${id}`)
+              .then((resposta) => {
+                console.log(resposta.data);
+              });
+          }
+    
+
     return <div>
         <h1>Listar Arqueólogos
         </h1>
@@ -29,6 +41,8 @@ function ArqueologoListar(){
                 <th>Anos de experiência</th>
                 <th>Número Registro Profissional</th>
                 <th>Adicionado em</th>
+                <th>Deletar</th>
+                <th>Editar</th>
             </tr>
 
 
@@ -41,6 +55,16 @@ function ArqueologoListar(){
                     <td>{arqueologo.anosExperiencia}</td>
                     <td>{Number(arqueologo.idRegistroProfissional)}</td>
                     <td>{new Date(arqueologo.adicionadoEm?? "").toLocaleDateString("pt-BR")}</td>
+                    <td>
+                    <button onClick={() => deletar(arqueologo.id!)} >
+                         Deletar
+                    </button>
+                    </td>
+                    <td>
+                        <Link to={`/editar/arqueologo/${arqueologo.id}`} className="btn-link">
+                        Alterar
+                    </Link>
+                    </td>
                 </tr>
             ))}
         </table>

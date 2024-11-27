@@ -10,6 +10,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import PaleontologoListar from "./components/PaleontologoListar";
 import ArqueologoListar from "./components/ArqueologoListar";
 import ArqueologoCadastrar from "./components/ArqueologoCadastrar";
+import ArqueologoEditar from "./components/ArqueologoEditar";
 
 //importar componentes
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/listar/paleontologo" element={<PaleontologoListar/>}></Route>
           <Route path="/listar/arqueologo" element={<ArqueologoListar/>}></Route>
           <Route path="/adicionar/arqueologo" element={<ArqueologoCadastrar/>}></Route>
+          <Route path="/editar/arqueologo/:id" element={<ArqueologoEditar/>}></Route>
           <Route path="/listar/formacaoAcademica" element={<FormacaoAcademicaListar/>}></Route>
           <Route path="/listar/areaEspecializacao" element={<AreaEspecializacaoListar/>}></Route>
           <Route path="/listar/artefato" element={<ArtefatoListar/>}></Route>
