@@ -11,6 +11,8 @@ import PaleontologoListar from "./components/PaleontologoListar";
 import ArqueologoListar from "./components/ArqueologoListar";
 import ArqueologoCadastrar from "./components/ArqueologoCadastrar";
 import ArqueologoEditar from "./components/ArqueologoEditar";
+import PaleontologoCadastrar from "./components/PaleontologoCadastrar ";
+import PaleontologoEditar from "./components/PaleontologoEditar";
 
 //importar componentes
 function App() {
@@ -31,7 +33,15 @@ function App() {
                         <li><Link to="/adicionar/arqueologo">Adicionar</Link></li>
                     </ul>
                 </li>
-                <li><Link to="/listar/paleontologo">Paleontólogo</Link></li>
+
+                <li className="dropdown">   
+                    <span className="dropdown-label">Paleontólogo</span>
+                    <ul className="dropdown-menu">
+                        <li><Link to="/listar/paleontologo">Listar</Link></li>
+                        <li><Link to="/adicionar/paleontologo">Adicionar</Link></li>
+                    </ul>
+                </li>
+                
                 <li><Link to="/listar/fossil">Fossil</Link></li>
                 <li><Link to="/listar/artefato">Artefato</Link></li>
                 <li><Link to="/listar/formacaoAcademica">Formação Acadêmica</Link></li>
@@ -44,6 +54,8 @@ function App() {
           <Route path="/" element={<Home/>}></Route>
           <Route path="/relatorio" element={<RelatorioQuantitativo/>}></Route>
           <Route path="/listar/paleontologo" element={<PaleontologoListar/>}></Route>
+          <Route path="/adicionar/paleontologo" element={<PaleontologoCadastrar/>}></Route>
+          <Route path="/editar/paleontologo/:id" element={<PaleontologoEditar/>}></Route>
           <Route path="/listar/arqueologo" element={<ArqueologoListar/>}></Route>
           <Route path="/adicionar/arqueologo" element={<ArqueologoCadastrar/>}></Route>
           <Route path="/editar/arqueologo/:id" element={<ArqueologoEditar/>}></Route>
