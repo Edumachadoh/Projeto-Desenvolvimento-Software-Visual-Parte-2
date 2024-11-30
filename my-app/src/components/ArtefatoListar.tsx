@@ -44,23 +44,23 @@ function ArtefatoListar() {
                     </tr>
                 </thead>
                 <tbody>
-                    {artefato.map(arteafto => (
-                        <tr key={arteafto.id}>
-                            <td>{arteafto.id}</td>
-                            <td>{arteafto.nome}</td>
-                            <td>{arteafto.periodo}</td>
-                            <td>{arteafto.civilizacaoDeOrigem}</td>
-                            <td>{arteafto.funcionalidade}</td>
-                            <td>{arteafto.dimensao}</td>
-                            <td>{arteafto.material}</td>
-                            <td>{new Date(arteafto.adicionadoEm ?? "").toLocaleDateString("pt-BR")}</td>
+                    {artefato.map(artefato => (
+                        <tr key={artefato.id}>
+                            <td>{artefato.id}</td>
+                            <td>{artefato.nome}</td>
+                            <td>{artefato.periodo}</td>
+                            <td>{artefato.civilizacaoDeOrigem}</td>
+                            <td>{artefato.funcionalidade}</td>
+                            <td>{artefato.dimensao}</td>
+                            <td>{artefato.material}</td>
+                            <td>{new Date(artefato.adicionadoEm ?? "").toLocaleDateString("pt-BR")}</td>
                             <td>
-                                <button onClick={() => deletar(arteafto.id)}>
+                                <button onClick={() => deletar(arteafto.id!)}>
                                     Deletar
                                 </button>
                             </td>
                             <td>
-                                <Link to={`/editar/artefato/${arteafto.id}`} className="btn-link">
+                                <Link to={`/editar/artefato/${artefato.id}`} className="btn-link">
                                     Alterar
                                 </Link>
                             </td>

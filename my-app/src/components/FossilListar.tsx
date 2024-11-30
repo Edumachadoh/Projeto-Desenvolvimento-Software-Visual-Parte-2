@@ -66,7 +66,7 @@ function FossilListar() {
               <td>{fossil.epocaGeologica}</td>
               <td>{new Date(fossil.adicionadoEm || "").toLocaleDateString("pt-BR")}</td>
               <td>
-                <button onClick={() => deletar(fossil.id)}>
+                <button onClick={() => deletar(fossil.id!)}>
                   Deletar
                 </button>
               </td>
