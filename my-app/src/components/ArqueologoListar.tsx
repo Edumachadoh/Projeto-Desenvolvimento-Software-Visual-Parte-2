@@ -40,6 +40,7 @@ function ArqueologoListar(){
                 <th>Data de Nascimento</th>
                 <th>Anos de experiência</th>
                 <th>Número Registro Profissional</th>
+                <th>Formação Acadêmica</th>
                 <th>Adicionado em</th>
                 <th>Deletar</th>
                 <th>Editar</th>
@@ -54,6 +55,7 @@ function ArqueologoListar(){
                     <td>{new Date(arqueologo.dataNascimento).toLocaleDateString("pt-BR")}</td>
                     <td>{arqueologo.anosExperiencia}</td>
                     <td>{Number(arqueologo.idRegistroProfissional)}</td>
+                    <td>{arqueologo.formacaoAcademica?.nome}</td>
                     <td>{new Date(arqueologo.adicionadoEm?? "").toLocaleDateString("pt-BR")}</td>
                     <td>
                     <button onClick={() => deletar(arqueologo.id!)} >

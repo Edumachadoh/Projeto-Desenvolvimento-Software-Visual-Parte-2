@@ -1,6 +1,6 @@
 import { Paleontologo } from "./Paleontologo";
 
-export interface Fossil extends Paleontologo{
+export interface Fossil{
     id?: string;
     nome: string;
     nomeCientifico: string;

@@ -1,3 +1,4 @@
+import { FormacaoAcademica } from './FormacaoAcademica';
 export interface Arqueologo {
     id?: string;
     nome: string;
@@ -6,5 +7,6 @@ export interface Arqueologo {
     anosExperiencia: string;
     idRegistroProfissional: number,
     formacaoAcademicaId: number,
+    formacaoAcademica?: FormacaoAcademica;
     adicionadoEm?: Date
 }

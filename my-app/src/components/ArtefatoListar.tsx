@@ -46,7 +46,7 @@ function ArtefatoListar(){
             </tr>
 
 
-            {artefato.map(arteafto => (
+            {/* {artefato.map(arteafto => (
                 <tr key={artefato.id}>
                     <td>{artefato.id}</td>
                     <td>{artefato.nome}</td>
@@ -67,7 +67,9 @@ function ArtefatoListar(){
                     </Link>
                     </td>
                 </tr>
-            ))}
+
+
+            ))} */}
         </table>
     </div>
 }

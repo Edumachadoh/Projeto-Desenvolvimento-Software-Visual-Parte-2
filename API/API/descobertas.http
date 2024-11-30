@@ -87,7 +87,7 @@ POST http://localhost:5020/api/arqueologo/cadastrar
 Content-Type: application/json
 
 {
-  "nome": "Tiririca Messias Bolsonaro",
+  "nome": "Neymar Jr",
   "cpf": "772-642-126.12",
   "dataNascimento": "1985-01-15",
   "anosExperiencia": "10",

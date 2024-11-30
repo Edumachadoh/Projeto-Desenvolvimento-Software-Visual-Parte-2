@@ -27,12 +27,12 @@ function ArqueologoEditar() {
           setDatanascimento(resposta.data.dataNascimento);
           setAnosExperiencia(resposta.data.anosExperiencia);
           setIdRegistroProfissional(resposta.data.idRegistroProfissional.toString());
-          buscarCategorias();
+          buscarFormacoesAcademicas();
         });
     }
   }, []);
 
-  function buscarCategorias() {
+  function buscarFormacoesAcademicas() {
     axios
       .get<FormacaoAcademica[]>("http://localhost:5020/api/formacao-academica/listar")
       .then((resposta) => {
@@ -128,21 +128,23 @@ function ArqueologoEditar() {
           />
       </div>
       <div className="form-group">
-        <label >Formação Acadêmica:</label>
+        <label>Formação Acadêmica:</label>
         <select
-            onChange={(e: any) => setFormacaoAcademicaId(e.target.value)}
-          >
-            {formacoesAcademicas.map((formacaoAcademica) => (
-              <option
-                value={formacaoAcademica.id}
-                key={formacaoAcademica.id}
-              >
-                {formacaoAcademica.nome}
-              </option>
-            ))}
-          </select>
+          value={formacaoAcademicaId} // Define o valor padrão
+          onChange={(e: any) => setFormacaoAcademicaId(Number(e.target.value))}
+        >
+          <option value={0}>Selecione uma formação acadêmica</option> {1}
+          {formacoesAcademicas.map((formacaoAcademica) => (
+            <option
+              value={formacaoAcademica.id}
+              key={formacaoAcademica.id}
+            >
+              {formacaoAcademica.nome}
+            </option>
+          ))}
+        </select>
       </div>
-      <button type="submit">Cadastrar</button>
+      <button type="submit">Editar</button>
     </form>
   </div>
   );

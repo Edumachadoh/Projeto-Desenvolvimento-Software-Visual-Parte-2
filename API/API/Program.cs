@@ -49,11 +49,13 @@ app.MapGet("/api/relatorio", ([FromServices] AppDataContext ctx) =>
 
 app.MapGet("/api/arqueologo/listar", ([FromServices] AppDataContext ctx) => 
 {
-    if (ctx.Arqueologos.Any())
+
+     if (ctx.Arqueologos.Any())
     {
-        return Results.Ok(ctx.Arqueologos.ToList());
+        return Results.Ok(ctx.Arqueologos.Include(x => x.FormacaoAcademica).ToList());
     }
     return Results.NotFound();
+    
 });
 
 app.MapGet("/api/artefato/listar", ([FromServices] AppDataContext ctx) => 
@@ -106,6 +108,8 @@ app.MapGet("/api/arqueologo/buscar/{id}", ([FromRoute] int id,
     [FromServices] AppDataContext ctx) =>
 {
     Arqueologo? arqueologo = ctx.Arqueologos.Find(id);
+
+
     if (arqueologo is null)
     {
         return Results.NotFound();
@@ -367,7 +371,19 @@ app.MapPut("/api/arqueologo/alterar/{id}", ([FromRoute] int id,
     {
         return Results.NotFound();
     }
+
+    FormacaoAcademica? formacaoAcademica = ctx.FormacoesAcademicas.Find(arqueologo.FormacaoAcademicaId);
+    if (formacaoAcademica is null)
+    {
+        return Results.NotFound();
+    }
+
+    arqueologo.Nome = arqueologoAlterada.Nome;
+    arqueologo.Cpf = arqueologoAlterada.Cpf;
+    arqueologo.DataNascimento = arqueologoAlterada.DataNascimento;
     arqueologo.AnosExperiencia = arqueologoAlterada.AnosExperiencia;
+    arqueologo.IdRegistroProfissional = arqueologoAlterada.IdRegistroProfissional;
+    arqueologo.FormacaoAcademicaId = arqueologoAlterada.FormacaoAcademicaId;
     ctx.Arqueologos.Update(arqueologo);
     ctx.SaveChanges();
     return Results.Ok(arqueologo);
