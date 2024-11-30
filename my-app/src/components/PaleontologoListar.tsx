@@ -39,6 +39,7 @@ function PaleontologoListar(){
                 <th>Data de Nascimento</th>
                 <th>Anos de experiência</th>
                 <th>Número de Matrícula</th>
+                <th>Área de Especialização</th>
                 <th>Adicionado em</th>
                 <th>Deletar</th>
                 <th>Editar</th>
@@ -52,6 +53,7 @@ function PaleontologoListar(){
                     <td>{paleontologo.dataNascimento}</td>
                     <td>{paleontologo.anosExperiencia}</td>
                     <td>{Number(paleontologo.idMatricula)}</td>
+                    <td>{paleontologo.areaEspecializacao?.nome}</td>
                     <td>{new Date(paleontologo.adicionadoEm?? "").toLocaleDateString("pt-BR")}</td>
                     <td>
                     <button onClick={() => deletar(paleontologo.id!)} >

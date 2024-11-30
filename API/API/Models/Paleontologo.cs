@@ -17,7 +17,7 @@ public class Paleontologo
 
     // herda de AreaEspecializacao
     public int AreaEspecializacaoId { get; set; }
-    public AreaEspecializacao? AreaEspecializacao { get; set; }
+    public AreaEspecializacao AreaEspecializacao { get; set; }
     public int IdMatricula { get; set; }
     public DateTime AdicionadoEm { get; set; }
 

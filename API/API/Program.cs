@@ -47,16 +47,6 @@ app.MapGet("/api/relatorio", ([FromServices] AppDataContext ctx) =>
     return Results.Ok(resultado);
 });
 
-app.MapGet("/api/arqueologo/listar", ([FromServices] AppDataContext ctx) => 
-{
-
-     if (ctx.Arqueologos.Any())
-    {
-        return Results.Ok(ctx.Arqueologos.Include(x => x.FormacaoAcademica).ToList());
-    }
-    return Results.NotFound();
-    
-});
 
 app.MapGet("/api/artefato/listar", ([FromServices] AppDataContext ctx) => 
 {
@@ -76,11 +66,22 @@ app.MapGet("/api/fossil/listar", ([FromServices] AppDataContext ctx) =>
     return Results.NotFound();
 });
 
+app.MapGet("/api/arqueologo/listar", ([FromServices] AppDataContext ctx) => 
+{
+
+     if (ctx.Arqueologos.Any())
+    {
+        return Results.Ok(ctx.Arqueologos.Include(x => x.FormacaoAcademica).ToList());
+    }
+    return Results.NotFound();
+    
+});
+
 app.MapGet("/api/paleontologo/listar", ([FromServices] AppDataContext ctx) => 
 {
     if (ctx.Paleontologos.Any())
     {
-        return Results.Ok(ctx.Paleontologos.ToList());
+         return Results.Ok(ctx.Paleontologos.Include(x => x.AreaEspecializacao).ToList());
     }
     return Results.NotFound();
 });
@@ -398,7 +399,12 @@ app.MapPut("/api/paleontologo/alterar/{id}", ([FromRoute] int id,
     {
         return Results.NotFound();
     }
-    paleontologo.IdMatricula = paleontologoAlterada.IdMatricula;
+    paleontologo.Nome = paleontologoAlterada.Nome;
+    paleontologo.Cpf = paleontologoAlterada.Cpf;
+    paleontologo.DataNascimento = paleontologoAlterada.DataNascimento;
+    paleontologo.AnosExperiencia = paleontologoAlterada.AnosExperiencia;
+    paleontologo.AreaEspecializacaoId = paleontologoAlterada.AreaEspecializacaoId;
+    paleontologo.Id = paleontologoAlterada.Id;
     ctx.Paleontologos.Update(paleontologo);
     ctx.SaveChanges();
     return Results.Ok(paleontologo);

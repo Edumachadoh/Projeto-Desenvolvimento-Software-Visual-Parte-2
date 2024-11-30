@@ -1,4 +1,4 @@
-import { FormacaoAcademica } from "./FormacaoAcademica";
+import { AreaEspecializacao } from "./AreaEspecializacao";
 
 export interface Paleontologo {
     id?: string;
@@ -8,5 +8,6 @@ export interface Paleontologo {
     anosExperiencia: string;
     idMatricula: number;
     areaEspecializacaoId: number,
+    areaEspecializacao?: AreaEspecializacao,
     adicionadoEm?: Date
 }

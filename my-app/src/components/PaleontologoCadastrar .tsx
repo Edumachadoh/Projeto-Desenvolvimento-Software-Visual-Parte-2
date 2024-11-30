@@ -1,50 +1,50 @@
 import { useEffect ,useState }from 'react';
-import { Arqueologo } from '../interfaces/Arqueologo';
 import axios from "axios";
-import { FormacaoAcademica } from '../interfaces/FormacaoAcademica';
-import fotoArqueologo from '../images/arqueologo.png';
+import { AreaEspecializacao } from '../interfaces/AreaEspecializacao';
+import fotoPaleontologo from '../images/paleontologo.png';
+import { Paleontologo } from '../interfaces/Paleontologo';
 
-function ArqueologoCadastrar() {
-  const [formacoesAcademicas, setFormacoesAcademicas] = useState<FormacaoAcademica[]>([]);
+function PaleontologoCadastrar() {
+  const [areasEspecializacao, setAreaEspecializacao] = useState<AreaEspecializacao[]>([]);
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
   const [dataNascimento, setDatanascimento] = useState("");
   const [anosExperiencia, setAnosExperiencia] = useState("");
-  const [idRegistroProfissional, setIdRegistroProfissional] = useState("");
-  const [formacaoAcademicaId, setFormacaoAcademicaId] = useState(0);
+  const [idMatricula, setIdMatricula] = useState("");
+  const [areaEspecializacaoId, setAreaEspecializacaoId] = useState(0);
 
   useEffect(() => {
     axios
-      .get<FormacaoAcademica[]>("http://localhost:5020/api/formacao-academica/listar")
+      .get<AreaEspecializacao[]>("http://localhost:5020/api/area-especializacao/listar")
       .then((resposta) => {
-        setFormacoesAcademicas(resposta.data);
+        setAreaEspecializacao(resposta.data);
       });
   });
 
   function enviarProduto(e: any) {
     e.preventDefault();
 
-    const arqueologo: Arqueologo = {
+    const paleontologo: Paleontologo = {
       nome: nome,
       cpf: cpf,
       dataNascimento: dataNascimento,
       anosExperiencia: anosExperiencia,
-      idRegistroProfissional: Number(idRegistroProfissional),
-      formacaoAcademicaId: Number(formacaoAcademicaId)
+      idMatricula: Number(idMatricula),
+      areaEspecializacaoId: Number(areaEspecializacaoId)
     };
 
-    fetch("http://localhost:5020/api/arqueologo/cadastrar", {
+    fetch("http://localhost:5020/api/paleontologo/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(arqueologo),
+      body: JSON.stringify(paleontologo),
     })
       .then((resposta) => {
         return resposta.json();
       })
       .then((arqueologo) => {
-        console.log("Arqueologo cadastrado", arqueologo);
+        console.log("Paleontologo cadastrado", paleontologo);
       });
   }
 
@@ -52,8 +52,8 @@ function ArqueologoCadastrar() {
     
     <div className="form-container">
     <div className="form-header">
-      <img src={fotoArqueologo} alt="Arqueólogo"/>
-      <h2>Cadastro de Arqueólogo</h2>
+      <img src={fotoPaleontologo} alt="Paleontólogo"/>
+      <h2>Cadastro de Paleontólogo</h2>
     </div>
     <form onSubmit={enviarProduto}>
       <div className="form-group">
@@ -101,27 +101,27 @@ function ArqueologoCadastrar() {
           />
       </div>
       <div className="form-group">
-      <label htmlFor="idRegistroProfissional">Registro Profissional</label>
+      <label htmlFor="idRegistroProfissional">Registro de Mátricula</label>
           <input
           placeholder="12355532"
             type="text"
             id="idRegistroProfissional"
             name="idRegistroProfissional"
             required
-            onChange={(e: any) => setIdRegistroProfissional(e.target.value)}
+            onChange={(e: any) => setIdMatricula(e.target.value)}
           />
       </div>
       <div className="form-group">
-        <label >Formação Acadêmica:</label>
+        <label >Área de Especialização</label>
         <select
-            onChange={(e: any) => setFormacaoAcademicaId(e.target.value)}
+            onChange={(e: any) => setAreaEspecializacaoId(e.target.value)}
           >
-            {formacoesAcademicas.map((formacaoAcademica) => (
+            {areasEspecializacao.map((areaEspecializacao) => (
               <option
-                value={formacaoAcademica.id}
-                key={formacaoAcademica.id}
+                value={areaEspecializacao.id}
+                key={areaEspecializacao.id}
               >
-                {formacaoAcademica.nome}
+                {areaEspecializacao.nome}
               </option>
             ))}
           </select>
@@ -134,4 +134,4 @@ function ArqueologoCadastrar() {
     
  
 
-export default ArqueologoCadastrar;
+export default PaleontologoCadastrar;
