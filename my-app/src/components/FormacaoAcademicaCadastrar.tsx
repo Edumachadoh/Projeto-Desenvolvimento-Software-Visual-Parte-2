@@ -16,7 +16,7 @@ function FormacaoAcademicaCadastrar() {
         universidade: universidade
       };
 
-    fetch("http://localhost:5020/api/formacaoacademica/cadastrar", {
+    fetch("http://localhost:5020/api/formacao-academica/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

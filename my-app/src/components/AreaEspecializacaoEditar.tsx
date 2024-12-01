@@ -9,6 +9,17 @@ function AreaEspecializacaoEditar() {
   const [nome, setNome] = useState("");
   const [pais, setPais] = useState("");
 
+  useEffect(() => {
+    if (id) {
+        axios.get<AreaEspecializacao>(`http://localhost:5020/api/area-especializacao/buscar/${id}`)
+            .then((resposta) => {
+                const artefato = resposta.data;
+                setNome(artefato.nome);
+                setPais(artefato.pais);
+            });
+    }
+}, [id]); 
+
   function enviarProduto(e: any) {
     e.preventDefault();
 
@@ -18,7 +29,7 @@ function AreaEspecializacaoEditar() {
     };
 
     axios
-      .put(`http://localhost:5020/api/areaEspecializacao/alterar/${id}`, areaEspecializacao)
+      .put(`http://localhost:5020/api/area-especializacao/alterar/${id}`, areaEspecializacao)
       .then((resposta) => {
         console.log(resposta.data);
       });

@@ -81,7 +81,7 @@ function ArqueologoCadastrar() {
       <div className="form-group">
       <label htmlFor="dataNascimento">Data de Nascimento</label>
           <input
-          placeholder="19"
+          placeholder="2001-01-01"
             type="text"
             id="dataNascimento"
             name="dataNascimento"

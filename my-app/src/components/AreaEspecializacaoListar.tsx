@@ -20,7 +20,7 @@ function AreaEspecializacaoListar(){
     
     function deletar(id: string) {
         axios
-          .delete(`http://localhost:5020/api/area-Especializacao/deletar/${id}`)
+          .delete(`http://localhost:5020/api/area-especializacao/deletar/${id}`)
           .then((resposta) => {
             console.log(resposta.data);
           });

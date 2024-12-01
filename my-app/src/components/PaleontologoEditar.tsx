@@ -25,7 +25,7 @@ function PaleontologoEditar() {
           setNome(resposta.data.nome);
           setCpf(resposta.data.cpf);
           setDatanascimento(resposta.data.dataNascimento);
-          setAnosExperiencia(resposta.data.anosExperiencia);
+          setAnosExperiencia(resposta.data.anosExperiencia.toString());
           setIdMatricula(resposta.data.idMatricula.toString());
           buscarCategorias();
         });
@@ -47,13 +47,13 @@ function PaleontologoEditar() {
       nome: nome,
       cpf: cpf,
       dataNascimento: dataNascimento,
-      anosExperiencia: anosExperiencia,
+      anosExperiencia: Number(anosExperiencia),
       idMatricula: Number(idMatricula),
       areaEspecializacaoId: Number(areaEspecializacaoId)
     };
 
     axios
-      .put(`http://localhost:5020//api/paleontologo/alterar/${id}`, paleontologo)
+      .put(`http://localhost:5020/api/paleontologo/alterar/${id}`, paleontologo)
       .then((resposta) => {
         console.log(resposta.data);
       });
@@ -142,7 +142,7 @@ function PaleontologoEditar() {
             ))}
           </select>
       </div>
-      <button type="submit">Cadastrar</button>
+      <button type="submit">Salvar Edição</button>
     </form>
   </div>
   );

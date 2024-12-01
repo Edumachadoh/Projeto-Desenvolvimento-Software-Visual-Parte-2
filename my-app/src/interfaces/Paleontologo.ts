@@ -5,7 +5,7 @@ export interface Paleontologo {
     nome: string;
     cpf : string;
     dataNascimento: string;
-    anosExperiencia: string;
+    anosExperiencia: number;
     idMatricula: number;
     areaEspecializacaoId: number,
     areaEspecializacao?: AreaEspecializacao,

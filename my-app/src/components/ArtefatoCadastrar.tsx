@@ -5,7 +5,7 @@ import { Arqueologo } from "../interfaces/Arqueologo";
 function ArtefatoCadastrar() {
     const [nome, setNome] = useState("");
     const [periodo, setPeriodo] = useState("");
-    const [civilizacaoDeOrigem, setCivilizacaoDeOrigem] = useState("");
+    const [civilizacaoOrigem, SetCivilizacaoOrigem] = useState("");
     const [funcionalidade, setFuncionalidade] = useState("");
     const [dimensao, setDimensao] = useState("");
     const [material, setMaterial] = useState("");
@@ -27,7 +27,7 @@ function ArtefatoCadastrar() {
         const artefato: Artefato = {
             nome,
             periodo,
-            civilizacaoDeOrigem,
+            civilizacaoOrigem: civilizacaoOrigem,
             funcionalidade,
             dimensao,
             material,
@@ -59,7 +59,7 @@ function ArtefatoCadastrar() {
                 <div className="form-group">
                 <label htmlFor="nome">Nome</label>
                 <input
-                    placeholder="Exemplo de Artefato"
+                    placeholder="Jóia"
                     type="text"
                     id="nome"
                     value={nome}
@@ -86,9 +86,9 @@ function ArtefatoCadastrar() {
                     placeholder="Primeiros humanos América do Norte"
                     type="text"
                     id="civilizacaoDeOrigem"
-                    value={civilizacaoDeOrigem}
+                    value={civilizacaoOrigem}
                     required
-                    onChange={(e) => setCivilizacaoDeOrigem(e.target.value)}
+                    onChange={(e) => SetCivilizacaoOrigem(e.target.value)}
                 />
                 </div>
 

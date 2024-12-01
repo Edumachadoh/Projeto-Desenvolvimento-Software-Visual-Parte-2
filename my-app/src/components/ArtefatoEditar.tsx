@@ -9,7 +9,7 @@ function ArtefatoEditar() {
     const [arqueologos, setArqueologos] = useState<Arqueologo[]>([]);
     const [nome, setNome] = useState("");
     const [periodo, setPeriodo] = useState("");
-    const [civilizacaoDeOrigem, setCivilizacaoDeOrigem] = useState("");
+    const [civilizacaoOrigem, setCivilizacaoOrigem] = useState("");
     const [funcionalidade, setFuncionalidade] = useState("");
     const [dimensao, setDimensao] = useState("");
     const [material, setMaterial] = useState("");
@@ -22,7 +22,7 @@ function ArtefatoEditar() {
                     const artefato = resposta.data;
                     setNome(artefato.nome);
                     setPeriodo(artefato.periodo);
-                    setCivilizacaoDeOrigem(artefato.civilizacaoDeOrigem);
+                    setCivilizacaoOrigem(artefato.civilizacaoOrigem);
                     setFuncionalidade(artefato.funcionalidade);
                     setDimensao(artefato.dimensao);
                     setMaterial(artefato.material);
@@ -42,7 +42,7 @@ function ArtefatoEditar() {
         const artefato: Artefato = {
             nome,
             periodo,
-            civilizacaoDeOrigem,
+            civilizacaoOrigem,
             funcionalidade,
             dimensao,
             material,
@@ -98,9 +98,9 @@ function ArtefatoEditar() {
                         type="text"
                         id="civilizacaoDeOrigem"
                         name="civilizacaoDeOrigem"
-                        value={civilizacaoDeOrigem}
+                        value={civilizacaoOrigem}
                         required
-                        onChange={(e) => setCivilizacaoDeOrigem(e.target.value)}
+                        onChange={(e) => setCivilizacaoOrigem(e.target.value)}
                     />
                 </div>
 

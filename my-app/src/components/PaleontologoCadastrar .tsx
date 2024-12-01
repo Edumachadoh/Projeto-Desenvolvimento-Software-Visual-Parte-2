@@ -28,7 +28,7 @@ function PaleontologoCadastrar() {
       nome: nome,
       cpf: cpf,
       dataNascimento: dataNascimento,
-      anosExperiencia: anosExperiencia,
+      anosExperiencia: Number(anosExperiencia),
       idMatricula: Number(idMatricula),
       areaEspecializacaoId: Number(areaEspecializacaoId)
     };
@@ -81,7 +81,7 @@ function PaleontologoCadastrar() {
       <div className="form-group">
       <label htmlFor="dataNascimento">Data de Nascimento</label>
           <input
-          placeholder="19"
+          placeholder="2001-01-01"
             type="text"
             id="dataNascimento"
             name="dataNascimento"

@@ -280,6 +280,19 @@ app.MapDelete("/api/artefato/deletar/{id}", ([FromRoute] int id,
     return Results.Ok(artefato);
 });
 
+app.MapDelete("/api/formacao-academica/deletar/{id}", ([FromRoute] int id,
+    [FromServices] AppDataContext ctx) =>
+{
+    FormacaoAcademica? formacaoAcademica = ctx.FormacoesAcademicas.Find(id);
+    if (formacaoAcademica is null)
+    {
+        return Results.NotFound();
+    }
+    ctx.FormacoesAcademicas.Remove(formacaoAcademica);
+    ctx.SaveChanges();
+    return Results.Ok(formacaoAcademica);
+});
+
 app.MapDelete("/api/arqueologo/deletar/{id}", ([FromRoute] int id,
     [FromServices] AppDataContext ctx) =>
 {
@@ -319,19 +332,6 @@ app.MapDelete("/api/area-especializacao/deletar/{id}", ([FromRoute] int id,
     return Results.Ok(AreaEspecializacao);
 });
 
-app.MapDelete("/api/formacao-academica/deletar/{id}", ([FromRoute] int id,
-    [FromServices] AppDataContext ctx) =>
-{
-    FormacaoAcademica? formacaoAcademica = ctx.FormacoesAcademicas.Find(id);
-    if (formacaoAcademica is null)
-    {
-        return Results.NotFound();
-    }
-    ctx.FormacoesAcademicas.Remove(formacaoAcademica);
-    ctx.SaveChanges();
-    return Results.Ok(formacaoAcademica);
-});
-
 //PUT: /api/produto/alterar/{id}
 app.MapPut("/api/fossil/alterar/{id}", ([FromRoute] int id,
     [FromBody] Fossil fossilAlterada,
@@ -358,6 +358,12 @@ app.MapPut("/api/artefato/alterar/{id}", ([FromRoute] int id,
         return Results.NotFound();
     }
     artefato.Periodo = artefatoAlterada.Periodo;
+    artefato.Nome = artefatoAlterada.Nome;
+    artefato.CivilizacaoOrigem = artefatoAlterada.CivilizacaoOrigem;
+    artefato.Funcionalidade = artefatoAlterada.Funcionalidade;
+    artefato.Dimensao = artefatoAlterada.Dimensao;
+    artefato.Material = artefatoAlterada.Material;
+    artefato.ArqueologoId = artefatoAlterada.ArqueologoId;
     ctx.Artefatos.Update(artefato);
     ctx.SaveChanges();
     return Results.Ok(artefato);
@@ -390,6 +396,7 @@ app.MapPut("/api/arqueologo/alterar/{id}", ([FromRoute] int id,
     return Results.Ok(arqueologo);
 });
 
+
 app.MapPut("/api/paleontologo/alterar/{id}", ([FromRoute] int id,
     [FromBody] Paleontologo paleontologoAlterada,
     [FromServices] AppDataContext ctx) =>
@@ -404,7 +411,7 @@ app.MapPut("/api/paleontologo/alterar/{id}", ([FromRoute] int id,
     paleontologo.DataNascimento = paleontologoAlterada.DataNascimento;
     paleontologo.AnosExperiencia = paleontologoAlterada.AnosExperiencia;
     paleontologo.AreaEspecializacaoId = paleontologoAlterada.AreaEspecializacaoId;
-    paleontologo.Id = paleontologoAlterada.Id;
+    paleontologo.IdMatricula = paleontologoAlterada.IdMatricula;
     ctx.Paleontologos.Update(paleontologo);
     ctx.SaveChanges();
     return Results.Ok(paleontologo);
@@ -420,6 +427,7 @@ app.MapPut("/api/area-especializacao/alterar/{id}", ([FromRoute] int id,
         return Results.NotFound();
     }
     areasEspecializacao.Nome = areasEspecializacaoAlterada.Nome;
+    areasEspecializacao.Pais = areasEspecializacaoAlterada.Pais;
     ctx.AreasEspecializacao.Update(areasEspecializacao);
     ctx.SaveChanges();
     return Results.Ok(areasEspecializacao);
@@ -434,7 +442,9 @@ app.MapPut("/api/formacao-academica/alterar/{id}", ([FromRoute] int id,
     {
         return Results.NotFound();
     }
-    formacaoAcademica.Universidade = formacaoAcademica.Universidade;
+
+    formacaoAcademica.Nome = formacaoAcademicaAlterada.Nome;
+    formacaoAcademica.Universidade = formacaoAcademicaAlterada.Universidade;
     ctx.FormacoesAcademicas.Update(formacaoAcademica);
     ctx.SaveChanges();
     return Results.Ok(formacaoAcademica);

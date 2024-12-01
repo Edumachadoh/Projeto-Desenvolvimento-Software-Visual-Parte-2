@@ -15,7 +15,7 @@ function AreaEspecializacaoCadastrar() {
       pais: pais
     };
 
-    fetch("http://localhost:5020/api/areaespecializacao/cadastrar", {
+    fetch("http://localhost:5020/api/area-especializacao/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function AreaEspecializacaoCadastrar() {
       <div className="form-group">
       <label htmlFor="pais">País</label>
           <input
-          placeholder="Pais"
+          placeholder="País"
             type="text"
             id="pais"
             name="pais"

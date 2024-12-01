@@ -4,7 +4,7 @@ export interface Artefato {
     id?: string;
     nome: string;
     periodo: string;
-    civilizacaoDeOrigem: string;
+    civilizacaoOrigem: string;
     funcionalidade: string;
     dimensao: string;
     material: string;

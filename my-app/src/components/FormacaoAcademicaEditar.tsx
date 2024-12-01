@@ -9,6 +9,18 @@ function FormacaoAcademicaEditar() {
   const [nome, setNome] = useState("");
   const [universidade, setUniversidade] = useState("");
 
+  useEffect(() => {
+    if (id) {
+        axios.get<FormacaoAcademica>(`http://localhost:5020/api/formacao-academica/buscar/${id}`)
+            .then((resposta) => {
+                const artefato = resposta.data;
+                setNome(artefato.nome);
+                setUniversidade(artefato.universidade);
+            });
+
+    }
+}, [id]); 
+
   function enviarProduto(e: any) {
     e.preventDefault();
 
@@ -18,7 +30,7 @@ function FormacaoAcademicaEditar() {
       };
 
     axios
-      .put(`http://localhost:5020/api/formacaoAcademica/alterar/${id}`, formacaoAcademica)
+      .put(`http://localhost:5020/api/formacao-academica/alterar/${id}`, formacaoAcademica)
       .then((resposta) => {
         console.log(resposta.data);
       });

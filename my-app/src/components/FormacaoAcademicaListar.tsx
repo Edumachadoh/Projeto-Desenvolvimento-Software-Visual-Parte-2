@@ -7,14 +7,14 @@ function FormacaoAcademicaListar(){
     const [formacaoAcademica, setFormacoesAcademicas] = useState<FormacaoAcademica[]>([]);
 
     useEffect(() => {
-        fetch("http://localhost:5020/api/formacao-Academica/listar")
+        fetch("http://localhost:5020/api/formacao-academica/listar")
           .then((resposta) => resposta.json())
           .then((formacoes) => setFormacoesAcademicas(formacoes));
       }, []); 
       
     function deletar(id: string) {
         axios
-          .delete(`http://localhost:5020/api/formacao-Academica/deletar/${id}`)
+          .delete(`http://localhost:5020/api/formacao-academica/deletar/${id}`)
           .then((resposta) => {
             console.log(resposta.data);
           });
@@ -28,7 +28,7 @@ function FormacaoAcademicaListar(){
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Pais</th>
+                <th>Universidade</th>
                 <th>Deletar</th>
                 <th>Editar</th>
             </tr>

@@ -48,7 +48,7 @@ function ArtefatoListar() {
                             <td>{artefato.id}</td>
                             <td>{artefato.nome}</td>
                             <td>{artefato.periodo}</td>
-                            <td>{artefato.civilizacaoDeOrigem}</td>
+                            <td>{artefato.civilizacaoOrigem}</td>
                             <td>{artefato.funcionalidade}</td>
                             <td>{artefato.dimensao}</td>
                             <td>{artefato.material}</td>
