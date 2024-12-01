@@ -13,6 +13,14 @@ import ArqueologoCadastrar from "./components/ArqueologoCadastrar";
 import ArqueologoEditar from "./components/ArqueologoEditar";
 import PaleontologoCadastrar from "./components/PaleontologoCadastrar ";
 import PaleontologoEditar from "./components/PaleontologoEditar";
+import AreaEspecializacaoCadastrar from "./components/AreaEspecializacaoCadastrar";
+import FormacaoAcademicaCadastrar from "./components/FormacaoAcademicaCadastrar";
+import FormacaoAcademicaEditar from "./components/FormacaoAcademicaEditar";
+import AreaEspecializacaoEditar from "./components/AreaEspecializacaoEditar";
+import FossilCadastrar from "./components/FossilCadastrar";
+import FossilEditar from "./components/FossilEditar";
+import ArtefatoCadastrar from "./components/ArtefatoCadastrar";
+import ArtefatoEditar from "./components/ArtefatoEditar";
 
 //importar componentes
 function App() {
@@ -57,20 +65,20 @@ function App() {
                 </ul>
                 </li>
 
-                <li className="dropdown">
-                <span className="dropdown-label">Formação Acadêmica</span>
-                <ul className="dropdown-menu">
-                    <li><Link to="/listar/formacaoAcademica">Listar</Link></li>
-                    <li><Link to="/adicionar/formacaoAcademica">Adicionar</Link></li>
-                </ul>
+                <li className="dropdown">   
+                    <span className="dropdown-label">Área de Especialização</span>
+                    <ul className="dropdown-menu">
+                        <li><Link to="/listar/areaEspecializacao">Listar</Link></li>
+                        <li><Link to="/adicionar/areaEspecializacao">Adicionar</Link></li>
+                    </ul>
                 </li>
 
-                <li className="dropdown">
-                <span className="dropdown-label">Área de Especialização</span>
-                <ul className="dropdown-menu">
-                    <li><Link to="/listar/areaEspecializacao">Listar</Link></li>
-                    <li><Link to="/adicionar/areaEspecializacao">Adicionar</Link></li>
-                </ul>
+                <li className="dropdown">   
+                    <span className="dropdown-label">Formacao Academica</span>
+                    <ul className="dropdown-menu">
+                        <li><Link to="/listar/formacaoAcademica">Listar</Link></li>
+                        <li><Link to="/adicionar/formacaoAcademica">Adicionar</Link></li>
+                    </ul>
                 </li>
             </ul>
         </nav>
@@ -89,6 +97,14 @@ function App() {
           <Route path="/listar/areaEspecializacao" element={<AreaEspecializacaoListar/>}></Route>
           <Route path="/listar/artefato" element={<ArtefatoListar/>}></Route>
           <Route path="/listar/fossil" element={<FossilListar/>}></Route>
+          <Route path="/adicionar/areaEspecializacao" element={<AreaEspecializacaoCadastrar/>}></Route>  
+          <Route path="/adicionar/formacaoAcademica" element={<FormacaoAcademicaCadastrar/>}></Route>  
+          <Route path="/editar/formacaoAcademica/:id" element={<FormacaoAcademicaEditar/>}></Route>
+          <Route path="/editar/areaEspecializacao/:id" element={<AreaEspecializacaoEditar/>}></Route>
+          <Route path="/adicionar/fossil" element={<FossilCadastrar/>}></Route>  
+            <Route path="/editar/fossil/:id" element={<FossilEditar/>}></Route>  
+        <Route path="/adicionar/artefato" element={<ArtefatoCadastrar/>}></Route>  
+        <Route path="/editar/artefato/:id" element={<ArtefatoEditar/>}></Route>  
     </Routes>
     </BrowserRouter>
    </div>

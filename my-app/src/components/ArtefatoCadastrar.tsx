@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Artefato } from "../interfaces/Artefato";
-import { Arqueologo } from "../interfaces/Arqueologo"; // Corrigido de Paleontologo para Arqueologo, conforme contexto
+import { Arqueologo } from "../interfaces/Arqueologo"; 
 
 function ArtefatoCadastrar() {
     const [nome, setNome] = useState("");
@@ -10,11 +10,9 @@ function ArtefatoCadastrar() {
     const [dimensao, setDimensao] = useState("");
     const [material, setMaterial] = useState("");
     const [arqueologoId, setArqueologoId] = useState(0);
-    const [arqueologos, setArqueologos] = useState<Arqueologo[]>([]); // Melhor tipo para segurança de tipo
-
-    // Carregar arqueólogos
+    const [arqueologos, setArqueologos] = useState<Arqueologo[]>([]); 
     useEffect(() => {
-        fetch("http://localhost:5020/api/arqueologo/listar") // URL corrigida para listar arqueólogos
+        fetch("http://localhost:5020/api/arqueologo/listar") 
             .then((resposta) => resposta.json())
             .then((dados) => {
                 setArqueologos(dados);
@@ -24,7 +22,7 @@ function ArtefatoCadastrar() {
 
     // Enviar artefato
     function enviarArtefato(e: any) {
-        e.preventDefault(); // Evitar recarregamento da página no submit
+        e.preventDefault(); 
 
         const artefato: Artefato = {
             nome,
@@ -33,7 +31,7 @@ function ArtefatoCadastrar() {
             funcionalidade,
             dimensao,
             material,
-            arqueologoId: Number(arqueologoId), // Garantir que o ID do arqueólogo seja um número
+            arqueologoId: Number(arqueologoId), 
         };
 
         fetch("http://localhost:5020/api/artefato/cadastrar", {
@@ -53,101 +51,103 @@ function ArtefatoCadastrar() {
     }
 
     return (
-        <div id="cadastro-artefato" className="cadastro-artefato">
-            <h1>Cadastrar Artefato</h1>
+        <div className="form-container">
+            <div className="form-header">
+                <h2>Cadastrar Artefato</h2>
+            </div>
             <form onSubmit={enviarArtefato}>
                 <div className="form-group">
-                    <label htmlFor="nome">Nome</label>
-                    <input
-                        onChange={(e) => setNome(e.target.value)}
-                        type="text"
-                        id="nome"
-                        name="nome"
-                        required
-                        placeholder="Digite o nome do artefato"
-                    />
+                <label htmlFor="nome">Nome</label>
+                <input
+                    placeholder="Exemplo de Artefato"
+                    type="text"
+                    id="nome"
+                    value={nome}
+                    required
+                    onChange={(e) => setNome(e.target.value)}
+                />
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="periodo">Período</label>
-                    <textarea
-                        onChange={(e) => setPeriodo(e.target.value)}
-                        id="periodo"
-                        name="periodo"
-                        required
-                        placeholder="Digite o período do artefato"
-                    ></textarea>
+                <label htmlFor="periodo">Período</label>
+                <input
+                    placeholder="Paleolítico Superior"
+                    type="text"
+                    id="periodo"
+                    value={periodo}
+                    required
+                    onChange={(e) => setPeriodo(e.target.value)}
+                />
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="civilizacaoDeOrigem">Civilização de Origem</label>
-                    <input
-                        onChange={(e) => setCivilizacaoDeOrigem(e.target.value)}
-                        type="text"
-                        id="civilizacaoDeOrigem"
-                        name="civilizacaoDeOrigem"
-                        required
-                        placeholder="Digite a civilização de origem do artefato"
-                    />
+                <label htmlFor="civilizacaoDeOrigem">Civilização de Origem</label>
+                <input
+                    placeholder="Primeiros humanos América do Norte"
+                    type="text"
+                    id="civilizacaoDeOrigem"
+                    value={civilizacaoDeOrigem}
+                    required
+                    onChange={(e) => setCivilizacaoDeOrigem(e.target.value)}
+                />
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="funcionalidade">Funcionalidade</label>
-                    <input
-                        onChange={(e) => setFuncionalidade(e.target.value)}
-                        type="text"
-                        id="funcionalidade"
-                        name="funcionalidade"
-                        required
-                        placeholder="Digite a funcionalidade do artefato"
-                    />
+                <label htmlFor="funcionalidade">Funcionalidade</label>
+                <input
+                    placeholder="Criação de cordas"
+                    type="text"
+                    id="funcionalidade"
+                    value={funcionalidade}
+                    required
+                    onChange={(e) => setFuncionalidade(e.target.value)}
+                />
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="dimensao">Dimensão</label>
-                    <input
-                        onChange={(e) => setDimensao(e.target.value)}
-                        type="text"
-                        id="dimensao"
-                        name="dimensao"
-                        required
-                        placeholder="Digite a dimensão do artefato"
-                    />
+                <label htmlFor="dimensao">Dimensão</label>
+                <input
+                    placeholder="21 cm"
+                    type="text"
+                    id="dimensao"
+                    value={dimensao}
+                    required
+                    onChange={(e) => setDimensao(e.target.value)}
+                />
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="material">Material</label>
-                    <input
-                        onChange={(e) => setMaterial(e.target.value)}
-                        type="text"
-                        id="material"
-                        name="material"
-                        required
-                        placeholder="Digite o material do artefato"
-                    />
+                <label htmlFor="material">Material</label>
+                <input
+                    placeholder="Origem vegetal"
+                    type="text"
+                    id="material"
+                    value={material}
+                    required
+                    onChange={(e) => setMaterial(e.target.value)}
+                />
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="arqueologo">Arqueólogo</label>
-                    <select
-                        id="arqueologo"
-                        value={arqueologoId}
-                        onChange={(e) => setArqueologoId(Number(e.target.value))}
-                    >
-                        <option value="">Selecione um arqueólogo</option>
-                        {arqueologos.map((arqueologo) => (
-                            <option key={arqueologo.id} value={arqueologo.id}>
-                                {arqueologo.nome}
-                            </option>
-                        ))}
-                    </select>
+                <label>Arqueólogo</label>
+                <select
+                    value={arqueologoId}
+                    onChange={(e) => setArqueologoId(Number(e.target.value))}
+                    required
+                >
+                    <option value={0}>Selecione um arqueólogo</option>
+                    {arqueologos.map((arqueologo) => (
+                    <option key={arqueologo.id} value={arqueologo.id}>
+                        {arqueologo.nome}
+                    </option>
+                    ))}
+                </select>
                 </div>
 
-                <div className="form-actions">
-                    <button type="submit">Cadastrar Artefato</button>
-                </div>
+                <button type="submit">Cadastrar</button>
             </form>
         </div>
+
     );
 }
 

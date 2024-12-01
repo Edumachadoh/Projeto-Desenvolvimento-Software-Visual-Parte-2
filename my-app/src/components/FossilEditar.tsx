@@ -17,10 +17,9 @@ function FossilEditar() {
   const [epocaGeologica, setEpocaGeologica] = useState("");
   const [paleontologoId, setPaleontologoId] = useState(0);
 
-  // Carregar o fósseis e paleontólogos quando o componente for montado
+
   useEffect(() => {
     if (id) {
-      // Buscar o fósseis com o ID
       axios
         .get<Fossil>(`http://localhost:5020/api/fossil/buscar/${id}`)
         .then((resposta) => {
@@ -40,7 +39,6 @@ function FossilEditar() {
         });
     }
 
-    // Carregar paleontólogos
     axios
       .get<Paleontologo[]>("http://localhost:5020/api/paleontologo/listar")
       .then((resposta) => {
@@ -51,7 +49,6 @@ function FossilEditar() {
       });
   }, [id]);
 
-  // Função para enviar o formulário e atualizar o fósseis
   function enviarProduto(e: any) {
     e.preventDefault();
 
@@ -70,14 +67,14 @@ function FossilEditar() {
       .put(`http://localhost:5020/api/fossil/alterar/${id}`, fossilData)
       .then((resposta) => {
         console.log("Fósseis atualizado:", resposta.data);
-        // Aqui, você pode redirecionar ou exibir uma mensagem de sucesso
+        
       })
       .catch((erro) => {
         console.error("Erro ao atualizar fósseis:", erro);
       });
   }
 
-  if (!fossil) return <div>Carregando...</div>; // Espera até que o fósseis esteja carregado
+  if (!fossil) return <div>Carregando...</div>; 
 
   return (
     <div className="form-container">

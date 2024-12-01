@@ -6,9 +6,8 @@ import { Fossil } from '../interfaces/Fossil';
 function FossilListar() {
   const [fossils, setFossils] = useState<Fossil[]>([]);
 
-  // Use o useEffect corretamente com o array de dependências vazio.
+ 
   useEffect(() => {
-    // Usando axios para obter os dados de forma consistente.
     axios
       .get("http://localhost:5020/api/fossil/listar")
       .then(resposta => {
@@ -17,15 +16,14 @@ function FossilListar() {
       .catch((erro) => {
         console.error("Erro ao buscar fósseis:", erro);
       });
-  }, []); // O array vazio garante que a requisição só seja feita uma vez.
+  }, []); 
 
-  // Função para deletar o fósseis
   function deletar(id: string) {
     axios
       .delete(`http://localhost:5020/api/fossil/deletar/${id}`)
       .then((resposta) => {
         console.log("Fóssil deletado:", resposta.data);
-        // Após deletar, é uma boa ideia atualizar a lista de fósseis.
+       
         setFossils(fossils.filter(fossil => fossil.id !== id));
       })
       .catch((erro) => {

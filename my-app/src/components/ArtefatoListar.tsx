@@ -7,19 +7,18 @@ function ArtefatoListar() {
     const [artefato, setArtefato] = useState<Artefato[]>([]);
 
     useEffect(() => {
-        // Mudamos para axios para um tratamento mais adequado
         axios.get("http://localhost:5020/api/artefato/listar")
             .then(resposta => {
                 setArtefato(resposta.data);
             })
             .catch(erro => console.error("Erro ao buscar dados:", erro));
-    }, []); // A chamada da API ocorre apenas uma vez após a montagem do componente
+    }, []); 
 
     function deletar(id: string) {
         axios.delete(`http://localhost:5020/api/artefato/deletar/${id}`)
             .then(resposta => {
                 console.log(resposta.data);
-                // Após deletar, podemos remover o artefato da lista de estado
+               
                 setArtefato(artefato.filter(artefato => artefato.id !== id));
             })
             .catch(err => console.error("Erro ao deletar artefato:", err));

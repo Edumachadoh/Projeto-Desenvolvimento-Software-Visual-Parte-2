@@ -5,7 +5,7 @@ import { Arqueologo } from '../interfaces/Arqueologo';
 import { useParams } from 'react-router-dom';
 
 function ArtefatoEditar() {
-    const { id } = useParams();  // Recebe o id da URL
+    const { id } = useParams();  
     const [arqueologos, setArqueologos] = useState<Arqueologo[]>([]);
     const [nome, setNome] = useState("");
     const [periodo, setPeriodo] = useState("");
@@ -15,7 +15,6 @@ function ArtefatoEditar() {
     const [material, setMaterial] = useState("");
     const [arqueologoId, setArqueologoId] = useState<number>(0);
 
-    // Carrega os dados do artefato e dos arqueólogos quando o componente é montado
     useEffect(() => {
         if (id) {
             axios.get<Artefato>(`http://localhost:5020/api/artefato/buscar/${id}`)
@@ -30,15 +29,13 @@ function ArtefatoEditar() {
                     setArqueologoId(artefato.arqueologoId);
                 });
 
-            // Buscar arqueólogos
             axios.get<Arqueologo[]>("http://localhost:5020/api/Arqueologo/listar")
                 .then((resposta) => {
                     setArqueologos(resposta.data);
                 });
         }
-    }, [id]);  // Dependência do id, para ser chamado sempre que o id mudar
+    }, [id]); 
 
-    // Enviar os dados do artefato alterado
     function enviarProduto(e: React.FormEvent) {
         e.preventDefault();
 
@@ -55,7 +52,7 @@ function ArtefatoEditar() {
         axios.put(`http://localhost:5020/api/artefato/alterar/${id}`, artefato)
             .then((resposta) => {
                 console.log('Artefato alterado:', resposta.data);
-                // Após enviar, você pode redirecionar ou exibir uma mensagem de sucesso
+               
             })
             .catch((err) => {
                 console.error('Erro ao alterar artefato:', err);

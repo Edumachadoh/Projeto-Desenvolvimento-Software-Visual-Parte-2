@@ -14,7 +14,6 @@ function FossilCadastrar() {
   const [epocaGeologica, setEpocaGeologica] = useState("");
   const [paleontologoId, setPaleontologoId] = useState<number>(0);
 
-  // useEffect para carregar paleontólogos
   useEffect(() => {
     axios
       .get<Paleontologo[]>("http://localhost:5020/api/paleontologo/listar")
@@ -26,7 +25,6 @@ function FossilCadastrar() {
       });
   }, []);
 
-  // Função para enviar o formulário
   function enviarProduto(e: React.FormEvent) {
     e.preventDefault();
 
@@ -45,7 +43,6 @@ function FossilCadastrar() {
       .post("http://localhost:5020/api/fossil/cadastrar", fossil)
       .then((resposta) => {
         console.log("Fósseis cadastrado", resposta.data);
-        // Limpar os campos após o envio
         setNome("");
         setNomeCientifico("");
         setLocalizacaoDescoberta("");
