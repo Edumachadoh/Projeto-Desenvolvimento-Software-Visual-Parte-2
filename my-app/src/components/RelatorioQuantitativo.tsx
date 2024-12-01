@@ -6,7 +6,7 @@ function RelatorioQuantitativo() {
 
     type Relatorio = {
         contPaleontologo: number;
-        contArqueologos: number;
+        contArqueologo: number;
         contArtefato: number;
         contFossil: number;
         contAreaEspecializacao: number;
@@ -43,7 +43,7 @@ function RelatorioQuantitativo() {
           {relatorio ? ( // Verifique se `relatorio` está preenchido.
             <tr>
               <td>{relatorio.contPaleontologo  ?? 0}</td>
-              <td>{relatorio.contArqueologos  ?? 0}</td>
+              <td>{relatorio.contArqueologo  ?? 0}</td>
               <td>{relatorio.contArtefato  ?? 0}</td>
               <td>{relatorio.contFossil  ?? 0}</td>
               <td>{relatorio.contAreaEspecializacao  ?? 0}</td>

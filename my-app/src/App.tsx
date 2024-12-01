@@ -41,11 +41,37 @@ function App() {
                         <li><Link to="/adicionar/paleontologo">Adicionar</Link></li>
                     </ul>
                 </li>
-                
-                <li><Link to="/listar/fossil">Fossil</Link></li>
-                <li><Link to="/listar/artefato">Artefato</Link></li>
-                <li><Link to="/listar/formacaoAcademica">Formação Acadêmica</Link></li>
-                <li><Link to="/listar/areaEspecializacao">Area de Especialização</Link></li>
+                <li className="dropdown">
+                <span className="dropdown-label">Fossil</span>
+                <ul className="dropdown-menu">
+                    <li><Link to="/listar/fossil">Listar</Link></li>
+                    <li><Link to="/adicionar/fossil">Adicionar</Link></li>
+                </ul>
+                </li>
+
+                <li className="dropdown">
+                <span className="dropdown-label">Artefato</span>
+                <ul className="dropdown-menu">
+                    <li><Link to="/listar/artefato">Listar</Link></li>
+                    <li><Link to="/adicionar/artefato">Adicionar</Link></li>
+                </ul>
+                </li>
+
+                <li className="dropdown">
+                <span className="dropdown-label">Formação Acadêmica</span>
+                <ul className="dropdown-menu">
+                    <li><Link to="/listar/formacaoAcademica">Listar</Link></li>
+                    <li><Link to="/adicionar/formacaoAcademica">Adicionar</Link></li>
+                </ul>
+                </li>
+
+                <li className="dropdown">
+                <span className="dropdown-label">Área de Especialização</span>
+                <ul className="dropdown-menu">
+                    <li><Link to="/listar/areaEspecializacao">Listar</Link></li>
+                    <li><Link to="/adicionar/areaEspecializacao">Adicionar</Link></li>
+                </ul>
+                </li>
             </ul>
         </nav>
     </header>

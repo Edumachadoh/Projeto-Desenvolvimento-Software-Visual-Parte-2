@@ -12,7 +12,7 @@ function ArtefatoListar() {
             .then(resposta => {
                 setArtefato(resposta.data);
             })
-            .catch(err => console.error("Erro ao buscar dados:", err));
+            .catch(erro => console.error("Erro ao buscar dados:", erro));
     }, []); // A chamada da API ocorre apenas uma vez após a montagem do componente
 
     function deletar(id: string) {
@@ -55,7 +55,7 @@ function ArtefatoListar() {
                             <td>{artefato.material}</td>
                             <td>{new Date(artefato.adicionadoEm ?? "").toLocaleDateString("pt-BR")}</td>
                             <td>
-                                <button onClick={() => deletar(arteafto.id!)}>
+                                <button onClick={() => deletar(artefato.id!)}>
                                     Deletar
                                 </button>
                             </td>
